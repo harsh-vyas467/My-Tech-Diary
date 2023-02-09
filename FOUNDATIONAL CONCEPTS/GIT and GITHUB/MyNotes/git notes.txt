@@ -1,0 +1,298 @@
+Git and GitHub
+-----------------
+Git :
+
+Git is a Distributed version control System 
+
+-> Local Version Control System : You can track files & rollback but if you loose your hardisk everything is lost
+
+->Centralised VCS : data is dumped into centralised server but if anything happens to the server your data will be lost and the entire history of the project will be lost except whatever single snapshots people
+happen to have on their local machines., Collaboration can be done
+
+->Distributed VCS : everyone has a backup of complete repo and server has also complete data in case server is damaged we can set up again as full history or version is saved on all the computer using that repo
+
+This is where Distributed Version Control Systems (DVCSs) step in. In a DVCS (such as Git, Mercurial,Bazaar or Darcs), clients don’t just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history. Thus, if any server dies, and these systems were collaborating via that server, any of the client repositories can be copied back up to the server to
+restore it. Every clone is really a full backup of all the data.
+
+-------
+Git Developed by :Linus Torvalds
+
+--------
+GitHUb :Hosting service to host git repository's
+
+other services similar to git Hub are: big bucket ,git lab,...
+---------
+git features:
+-> captures snapshot ,not differences
+
+-> Almost every operation is local
+
+->git has intigrity :checksum is used internally so that no one can temper with .git folder .
+
+-> git generally adds data
+
+-------
+
+check git is installed or not : git --version
+
+
+------------
+
+first check if git is already working on that folder or not :
+
+git status
+
+if the above command shows fatel error than you can proceed with git init command to initialize , but if you get some other response like modification or working tree clean .... , then git is already running in that folder
+
+
+
+-----------
+To initialize git repo:
+git init 
+
+to check status :
+git status
+
+------------
+
+git --help      ~to know which command does what
+
+git push --help   ~to have a summary of what git push does and available options with git push
+
+
+------------
+
+Do configuration for git before commiting :
+
+git config --global user.name "Harsh Vyas"
+
+git config --global user.email "harshrajensravyas@gmail.com"
+
+
+to check :
+git config --list
+git config user.name
+git config user.email 
+
+
+
+-----------
+
+to add files in staging area:
+
+git add <file_name>
+git add <first_file_name> <Second_file_name>
+git add --a
+git add --all
+git add -A
+git add .
+
+----------
+
+to commit changes :
+
+first add all the files you want to commit then apply this command :
+
+git commit -m "commit message"
+
+git commit -a -m "Direct commit"                 ~ add + commit ~but only tracked file ,if you have untracked file as well then it will remain untracked 
+
+git commit 
+
+-> if you use git commit then vim edditer will open 
+then press i
+to write commit message then press esc
+then write :wq
+then press enter
+
+
+git commit --amend        ~ change most recent commit message
+
+---------
+
+Changing the message of older or multiple commit messages
+
+If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
+
+On the command line, navigate to the repository that contains the commit you want to amend.
+
+Use the git rebase -i HEAD~n command to display a list of the last n commits in your default text editor.
+
+# Displays a list of the last 3 commits on the current branch
+$ git rebase -i HEAD~3
+The list will look similar to the following:
+
+pick e499d89 Delete CNAME
+pick 0c39034 Better README
+pick f7fde4a Change the commit message but push the same commit.
+
+# Rebase 9fdb3bd..f7fde4a onto 9fdb3bd
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+Replace pick with reword before each commit message you want to change.
+
+pick e499d89 Delete CNAME
+reword 0c39034 Better README
+reword f7fde4a Change the commit message but push the same commit.
+Save and close the commit list file.
+
+In each resulting commit file, type the new commit message, save the file, and close it.
+
+if you do changes commit message than all of them might not happen at the same time.so in that case .fire this command:
+
+git rebase --edit-todo
+
+
+
+When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+
+$ git push --force origin EXAMPLE-BRANCH
+------------
+to know commit history:
+
+git log
+
+git log --oneline
+
+----------
+to stop tracking and delete all tracking history ,basically this command deletes .git :
+
+rm -rf .git
+
+---------------
+
+to clone repo :
+
+git clone <http url>
+
+git clone <http url> <name you want to give to your folder>
+
+Note: if you didn't give any name then name of the repo will be by default ,the name of repo you are cloning from 
+that is name mensioned just before .git in http url
+
+-------------
+
+To Ignore files :
+
+touch .gitignore
+
+now,write the name of the file you want git to ignore for ex:if you want to ignore h.log and b.py file then write this names in .gitignore file 
+if you want git to ignore all the particular extension files then write *.extension
+for ex: *.log     ~ This will ignore all the files having .log extension.
+
+if you want to ignore folder for ex :
+if you want to ignore a folder name 'dir' then write
+
+dir/         in a git folder
+
+all the files in that particular folder (dir) will be ignored.
+
+althought blank folder is autometically ignored by git , it starts tracking it when you have something inside the folder
+
+
+# ignore all .a files
+*.a
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+# ignore all files in any directory named build
+build/
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf
+
+
+
+
+if you add already tracking file in .gitignore even then file will be tracked .if any modifications occurs in that file even then git keep tracking . if you want to stop git from tracking that file than you have to explicitely say to git to stop tracking :
+
+git rm --cached <file_name>
+
+
+---------
+To delete a file after it has been committed but still keep it available for editing, use the command git rm --cached <file_name>. This will remove the file from the staging area and the repository, but it will remain in your working directory and can still be edited. The git rm <file_name> command will remove the file from both the working directory and the repository, while the rm command will only remove the file from the working directory.
+
+
+
+------------
+
+git diff           ~compares working directory with staging area       
+
+
+if working directory is clean that means nothing to add then git diff will show nothing
+
+
+if you modifies a file and then commit without adding modified file then git diff will compare modified file with commited file
+
+
+git diff --staged                 ~compares staging area with previous commit
+
+
+-----------------
+
+rename:
+
+if you manually visit to a file for example har.py in your local repo and rename it to Harsh.py  , and you run git status command than it will show har.py deleted and Harsh.py file created  
+and then if you add the file to staging area then git will automatically understand that you renamed your file than you just have to commit it inorder to save it in history. 
+
+
+git rm <file_name>     ~this will remove and also add deleted file in staging area
+
+
+git mv file.txt renamedfile.txt        ~this will rename file and add renamed file to staging area
+
+
+
+
+-----------
+
+
+git log -p                ~log with diff
+
+git log -p -3              ~log with last three commits along with their diff
+
+
+git log --stat            ~show log or commit history in short
+
+git log --pretty=oneline
+git log --pretty=short
+git log --since=2.days
+git log --since=2.months
+git log --since=2.weeks
+git log --since=2.years 
+
+---------------
+
+To unstage , staged file:
+
+git restore --staged <file_name>
+
+---------
+
+if some file is accidently modified and you want the latest commit version of that file :
+
+git checkout -- <file_name>
+
+
+
+git checkout -f     ~return full directory to last commit
+
+
+
+git remote add origin git@github.com:harsh-vyas467/Internship-Learnings.git
