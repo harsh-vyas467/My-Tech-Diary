@@ -1,0 +1,34 @@
+# History:
+
+James Gosling and his team at Sun Microsystems develop Java as a programming language in the mid-1990s.
+
+Java was originally designed for interactive television, but the language was too advanced for the industry at the time.
+
+Java was released as a public beta in 1995, and the first official version of the language was released in 1996.
+
+Java was designed to be portable and secure, making it well-suited for use on the internet.
+
+The language quickly gained popularity among developers due to its "write once, run anywhere" capability, allowing developers to write code that can run on any platform without modification.
+
+In 2010, Sun Microsystems was acquired by Oracle Corporation, which continues to develop and maintain the Java language.
+
+Today, Java is one of the most widely used programming languages in the world and is used for a variety of applications, including desktop applications, web applications, mobile applications, and more.
+
+-----------------------------------------
+
+Java applications are platform independent, meaning they can run on any operating system.
+
+The JVM (Java Virtual Machine) is responsible for executing the Java code and is platform independent.
+
+The JRE (Java Runtime Environment) is specific to a particular operating system and architecture and is required to run Java applications.
+
+The JDK (Java Development Kit) is a bundle that contains both the JRE and development tools needed to develop and run Java applications. It is also specific to a particular operating system and architecture.
+
+If you are developing Java applications, you will need to install the JDK, which includes the JRE and JVM, on your development machine.
+
+If you only want to run Java applications, you can install the JRE.
+
+---------------------------------------------
+
+
+

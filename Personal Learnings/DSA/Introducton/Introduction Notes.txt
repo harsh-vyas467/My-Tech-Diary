@@ -1,0 +1,8 @@
+Their can be more than one reference variable pointing to the same object and if  variable value changes than it will be changed for all as They were pointing to the same thing.
+
+The object without reference variable is collected by garbage collecter. Object without reference variable is formed  when reference variable pointing to object started pointing to different object
+
+We don't need to check whether a number is Prime Number or not ,for the complete range of numbers between 2 to that specific number but we can check the number is completely divisible until it's square root
+Ex:
+if you  want to check 17 is prime or not then you just have to check divisiblity until 4, from 2-4  
+

@@ -68,6 +68,23 @@ git config --global user.name "Harsh Vyas"
 
 git config --global user.email "harshrajensravyas@gmail.com"
 
+---------------
+
+Config only for that repository
+
+$ git config --local user.name "John Doe"
+$ git config --local user.email "johndoe@example.com"
+
+$ git config user.name "John Doe"
+$ git config user.email "johndoe@example.com
+
+It is a good practice to set the user name and email address in Git, as they are used to identify the author of commits in a Git repository. If you don't set this information, Git will use the system username and hostname as the default values.
+
+
+
+
+
+
 
 to check :
 git config --list
@@ -152,7 +169,7 @@ Save and close the commit list file.
 
 In each resulting commit file, type the new commit message, save the file, and close it.
 
-if you do changes commit message than all of them might not happen at the same time.so in that case .fire this command:
+if you do changes commit message than all of them might not happen at the same time.so in that case . fire this command:
 
 git rebase --edit-todo
 
@@ -167,6 +184,10 @@ to know commit history:
 git log
 
 git log --oneline
+
+
+git blame file.txt
+To see who else has checked in specific files, you can use the "git blame" command. This command will show you the most recent commit that modified each line of the file and the author of that commit.
 
 ----------
 to stop tracking and delete all tracking history ,basically this command deletes .git :
@@ -296,3 +317,124 @@ git checkout -f     ~return full directory to last commit
 
 
 git remote add origin git@github.com:harsh-vyas467/Internship-Learnings.git
+
+git remote add origin <url of github repo>
+
+-> Upstream url is from where you forked repository
+
+git remote add upstream <upstream URL>
+
+force push:
+git push origin branch_name -f
+
+one branch can only have one pull reques ,Suppose you have created a branch and commited some changes and do the pull request then also done some commits in your local repository and when you push the changes then the changes will be added in the same pull request
+
+So every time you do major or distinguishing changes for forked repository do that in seperate branch So that different pull request can be created and that will make it easyier for the owner to evaluate changes and merge them in main codebase
+
+git reset --hard upstream/main
+
+git pull upstream main
+
+
+
+-----------------------------------
+
+Consider if you are an individual working in an organization and want to see some information regarding the commit or to see who else had checked in
+specific files. In that case, what command you would use to sort it out?
+
+gitk
+
+---------------------------------
+Rename branch 
+
+git branch -m old_branch_name new_branch_name
+
+------------
+delete branch
+
+git branch -D branch_name
+
+--------------------------
+
+Git can fail to start a merge for several reasons. Some of the common reasons for Git merge failure include:
+
+Conflicts: If the same lines in a file have been modified in both the source and target branches, Git will fail to automatically merge the changes and will mark the file as conflicted. The user will have to resolve the conflicts manually.
+
+Uncommitted changes: If you have uncommitted changes in your current branch, Git will not allow you to start a merge until those changes are committed or stashed.
+
+Unpulled changes: If the target branch has changes that haven't been pulled into your current branch, Git will fail to start the merge until those changes have been pulled.
+
+Incorrect branch specified: If you specify an incorrect target branch for the merge, Git will fail to start the merge.
+
+Unmergeable branches: If the source and target branches have changes that cannot be automatically merged, Git will fail to start the merge.
+
+In order to resolve Git merge failure, you should first identify the reason for the failure and then take appropriate action, such as committing or stashing changes, pulling changes, specifying the correct target branch, or resolving conflicts manually.
+
+
+-------------------------------
+
+
+Git command .................... used to give tags to the specified commit.
+The "git tag" command is used to give tags to the specified commit. A tag in Git is a label that is applied to a specific commit, and it can be used to mark a significant point in the history of a Git repository.
+
+To tag a specific commit, you can use the following command:
+
+
+$ git tag <tag_name> <commit_hash>
+where <tag_name> is the name you want to give to the tag, and <commit_hash> is the hash of the commit that you want to tag.
+
+For example, to tag a commit with the hash "1234567" with the tag name "v1.0", you can use the following command:
+
+
+$ git tag v1.0 1234567
+You can then use the "git show" command to view the tag and the associated commit:
+
+
+$ git show v1.0
+This will display the tag, the commit it is associated with, and the commit message and other details for that commit.
+
+
+------------------
+
+When you do not want to commit changes but do not want to loose them as well then you can save them through git stash and whenever you want them back, fire  git stash pop
+to run this command you need to first stage all the changes 
+
+git stash
+
+git stash pop
+
+git stash clear
+git stash drop
+
+-------
+
+git branch
+
+git branch -v     ~ returns last commit hash with commit message and currently working branch name
+
+
+git branch --merged   ~gives already merged branch
+
+
+git branch --no -merged  ~provides not merged branch
+
+
+Deleting branches
+
+git branch -d develop    ~gives error if develop is not merged
+
+
+git branch -D develop      ~gives no error even when branch is not merged
+
+
+------------
+To delete a branch from remote repostiory :
+
+git push -d origin branch_name
+
+-------------
+
+How do you move a commit to the staging area in git?
+
+git reset --soft HEAD~1
+

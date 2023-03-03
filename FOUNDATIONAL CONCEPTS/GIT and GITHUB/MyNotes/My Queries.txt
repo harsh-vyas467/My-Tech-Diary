@@ -1,1 +1,16 @@
 If you have staged two files, one.txt and two.txt, using the command git add ., and then modify the file one.py, then the status will show that one.py is modified and two.txt is staged. When you run git commit, only the staged version of two.txt and the older version of one.py will be committed. The modified version of one.py will not be part of the commit. To include the changes in the commit, you will need to stage the modified version of one.py using git add one.py before running git commit.
+
+
+
+---------------
+
+The second statement "git checkout --theirs index.html" is the one that makes Git use the file from the conflicting commit you are merging from.
+
+During a merge, if Git encounters a conflict, it will leave conflict markers in the conflicting files to indicate that the files need to be resolved. You can use the "git checkout --theirs index.html" command to checkout the version of the file from the branch you are merging in, effectively using it to resolve the conflict.
+
+In other words, the "--theirs" option tells Git to use the version of the file from the branch you specified with the "git merge" command. The "git checkout" command updates the working tree with the specified file.
+
+It's important to keep in mind that using the "git checkout --theirs" or "git checkout --ours" options to resolve conflicts is a simple way to resolve conflicts, but it may not always be the best solution. It's a good idea to review the changes carefully and ensure that you are choosing the correct version of the file before resolving conflicts in this manner.
+
+
+

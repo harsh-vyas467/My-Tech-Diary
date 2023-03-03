@@ -1,0 +1,69 @@
+generalization
+
+Generalization is a modeling technique in UML (Unified Modeling Language) that represents a relationship between a more general class (superclass or parent class) and a more specific class (subclass or child class). In this relationship, the subclass inherits the properties and behaviors of the superclass and can add new or override existing properties and behaviors.
+
+Generalization can be depicted in UML class diagrams using an arrow pointing from the subclass to the superclass, with an open triangle at the end of the arrow.
+
+For example, consider a base class Animal with properties and behaviors that are common to all animals, such as move(), eat(), and sleep(). You can create a subclass Mammal that inherits these properties and behaviors from the Animal class and adds new properties and behaviors specific to mammals, such as giveMilk().
+
+
+
+-----------------------------
+
+realization
+
+
+Realization is a modeling technique in UML (Unified Modeling Language) that represents a relationship between a class and an interface, where the class implements the behavior specified in the interface. In this relationship, the class provides a concrete implementation for the operations defined in the interface.
+
+Realization can be depicted in UML class diagrams using a solid arrow pointing from the class to the interface, with a filled triangle at the end of the arrow.
+
+For example, consider an interface Drawable with an operation draw() that specifies the behavior of an object that can be drawn. You can create a class Circle that implements the Drawable interface and provides a concrete implementation for the draw() operation.
+
+
+
+
+-------------------------
+
+
+aggregation
+
+Aggregation is a modeling technique in UML (Unified Modeling Language) that represents a whole-part relationship between objects, where an object can contain or be composed of multiple parts, but the parts can exist independently of the whole. In this relationship, the whole object is called the aggregator and the parts are called components.
+
+Aggregation can be depicted in UML class diagrams using a diamond shape attached to the aggregator class, with a solid arrow pointing to the component class.
+
+For example, consider a class Department that represents a department in a company. A Department object can contain multiple Employee objects, but an Employee object can exist independently of the Department object
+
+
+---------------------
+
+Dependency
+
+Dependency is a modeling technique in UML (Unified Modeling Language) that represents a relationship between two classes, where changes to one class may affect the other class. In this relationship, the dependent class is called the client and the class that is depended on is called the supplier.
+
+Dependency can be depicted in UML class diagrams using a dotted arrow pointing from the client class to the supplier class.
+
+For example, consider a class Order that represents an order in a shopping system, and a class Product that represents a product. The Order class may depend on the Product class because the information in the Product class is required to complete an order.
+
+
+
+-------------------------------------------------------
+
+UML (Unified Modeling Language) provides several types of relationships that can be used to model the relationships between objects, classes, and components in a system. The most common relationships in UML are:
+
+Association: This represents a relationship between two classes, where one class is related to another class. Association can be one-to-one, one-to-many, many-to-one, or many-to-many.
+
+Aggregation: This represents a whole-part relationship between objects, where an object can contain or be composed of multiple parts, but the parts can exist independently of the whole.
+
+Composition: This is a special form of aggregation, where the parts cannot exist independently of the whole. When the whole object is destroyed, the parts are destroyed as well.
+
+Generalization: This represents a relationship between a more general class (superclass or parent class) and a more specific class (subclass or child class). In this relationship, the subclass inherits the properties and behaviors of the superclass.
+
+Dependency: This represents a relationship between two classes, where changes to one class may affect the other class.
+
+Realization: This represents a relationship between a class and an interface, where the class implements the behavior specified in the interface.
+
+These relationships can be depicted in UML class diagrams using different types of arrows, such as solid arrows, dotted arrows, and diamond shapes, to represent the relationships between classes, interfaces, and objects.
+
+
+-----------
+Aggregation is referred as a “part–of” or “has–a” relationship
